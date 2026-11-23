@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 — 하루</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{--bg:#121318;--panel:#1C1D24;--panel2:#23252E;--line:#2E303A;--text:#E8E6E3;--dim:#9A9AA3;--accent:#FFB86B}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font-family:Pretendard,"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+       line-height:1.8;word-break:keep-all}
+  a{color:var(--accent)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+  .brand img{width:30px;height:30px;border-radius:7px}
+  h1{font-size:32px;margin:32px 0 6px;letter-spacing:-0.02em}
+  .date{color:var(--dim);margin:0 0 28px}
+  .summary{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+  .summary ul{margin:6px 0 0;padding-left:20px}
+  h2{font-size:20px;margin:40px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+  p,li{color:#D6D4D1}
+  table{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:13px}
+  code{font-size:13px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;word-break:break-all}
+  footer{border-top:1px solid var(--line);margin-top:48px;padding:28px 0 48px;color:var(--dim);font-size:14px}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><img src="icon.png" alt="">하루</a>
+  </header>
+
+  <h1>개인정보처리방침</h1>
+  <p class="date">시행일: 2026년 11월 23일</p>
+
+  <div class="summary">
+    <b>한눈에 보기</b>
+    <ul>
+      <li>하루(Haru)는 Windows PC에서만 동작하는 프로그램이며, <b>별도의 서버가 없습니다.</b></li>
+      <li>Google 계정 데이터는 <b>사용자의 PC와 Google 사이에서만</b> 오가며, 개발자를 포함한 제3자에게 전송되지 않습니다.</li>
+      <li>광고, 분석 도구, 사용 기록 수집을 하지 않습니다.</li>
+    </ul>
+  </div>
+
+  <h2>1. 하루가 접근하는 Google 데이터</h2>
+  <p>사용자가 하루에서 Google 계정으로 로그인하고 동의한 경우에만 아래 데이터에 접근합니다.</p>
+  <table>
+    <tr><th style="width:38%">데이터 (권한)</th><th>사용 목적</th></tr>
+    <tr><td>기본 캘린더의 일정<br><code>calendar.events</code></td><td>일정을 바탕화면 달력에 표시하고, 사용자가 하루에서 직접 추가·수정·삭제한 일정을 Google 캘린더에 반영합니다. 일정의 표시 순서를 기억하기 위해 일정의 비공개 확장 속성(<code>haruOrder</code>)에 순번을 저장합니다.</td></tr>
+    <tr><td>공개 캘린더의 일정<br><code>calendar.events.public.readonly</code></td><td>Google이 공개한 대한민국 공휴일 캘린더를 읽어 공휴일과 기념일을 표시합니다.</td></tr>
+    <tr><td>이름, 이메일 주소, 프로필 사진<br><code>openid</code> · <code>email</code> · <code>profile</code></td><td>현재 로그인한 계정을 계정 메뉴에 표시합니다.</td></tr>
+  </table>
+  <p>하루는 사용자가 직접 한 동작(일정 작성·수정·삭제)과 화면 표시에 필요한 경우에만 데이터를 사용합니다. 다른 캘린더의 일정이나 Gmail, Drive 등 그 밖의 Google 데이터에는 접근하지 않습니다.</p>
+
+  <h2>2. 데이터가 저장되는 곳</h2>
+  <p>하루가 저장하는 모든 데이터는 <b>사용자 PC의 <code>%LocalAppData%\Haru</code> 폴더</b>에만 저장됩니다.</p>
+  <ul>
+    <li><b>로그인 정보(토큰)</b>: 매번 다시 로그인하지 않도록 Google이 발급한 인증 토큰을 저장합니다.</li>
+    <li><b>계정 정보</b>: 계정 메뉴 표시를 위한 이름, 이메일, 프로필 사진 주소</li>
+    <li><b>일정 사본</b>: 인터넷이 끊겼을 때도 달력을 보여 주기 위한 일정 사본과, 아직 Google에 올리지 못한 변경 내역</li>
+    <li><b>공휴일 목록</b>과 <b>화면 설정</b>(위치, 크기, 색, 글꼴, 단축키 등)</li>
+  </ul>
+  <p>이 파일들은 다른 곳으로 전송되지 않습니다.</p>
+
+  <h2>3. 데이터 공유 및 제3자 제공</h2>
+  <p>하루는 Google 사용자 데이터를 판매하거나, 개발자를 포함한 어떤 제3자에게도 전송·공유하지 않습니다. 광고 목적이나 사용자 분석 목적으로 사용하지 않으며, 사람이 데이터를 열람하지 않습니다.</p>
+  <p>하루가 Google API에서 받은 정보를 사용하고 다른 앱으로 전송하는 방식은 Limited Use(제한적 사용) 요구사항을 포함한 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>을 준수합니다.</p>
+
+  <h2>4. 그 밖의 통신</h2>
+  <p>새 버전이 있는지 확인하기 위해 하루는 주기적으로 GitHub(<code>api.github.com</code>)에 최신 버전 정보를 요청하고, 사용자가 업데이트를 누르면 GitHub에서 설치 파일을 내려받습니다. 이때 Google 계정 정보나 일정은 전송되지 않습니다.</p>
+
+  <h2>5. 데이터 삭제 및 연결 해제</h2>
+  <ul>
+    <li><b>로그아웃</b>: 하루의 계정 메뉴에서 로그아웃하면 Google에 토큰 폐기를 요청하고, PC에 저장된 로그인 정보를 삭제합니다.</li>
+    <li><b>Google에서 연결 해제</b>: <a href="https://myaccount.google.com/connections">Google 계정 → 서드파티 앱 및 서비스</a>에서 하루의 접근 권한을 언제든 삭제할 수 있습니다.</li>
+    <li><b>모든 데이터 삭제</b>: 하루를 제거한 뒤 <code>%LocalAppData%\Haru</code> 폴더를 지우면 PC에 남은 데이터가 모두 삭제됩니다. Google 캘린더에 있는 일정은 Google 캘린더에서 관리합니다.</li>
+  </ul>
+
+  <h2>6. 아동의 개인정보</h2>
+  <p>하루는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 알면서 수집하지 않습니다.</p>
+
+  <h2>7. 방침의 변경</h2>
+  <p>이 방침이 바뀌면 이 페이지에 변경 내용과 새 시행일을 게시합니다.</p>
+
+  <h2>8. 문의</h2>
+  <p>개인정보와 관련한 문의는 아래로 연락해 주세요.<br>
+  이메일: <a href="mailto:colorfulsounds79@gmail.com">colorfulsounds79@gmail.com</a></p>
+
+  <footer>
+    <a href="./">하루 홈</a> · 하루 (Haru)
+  </footer>
+</div>
+</body>
+</html>
