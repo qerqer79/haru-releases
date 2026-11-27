@@ -33,6 +33,13 @@
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#1C1D24;
        font-weight:700;padding:13px 22px;border-radius:12px;text-decoration:none;font-size:16px}
   .btn:hover{filter:brightness(1.06)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);font-weight:600}
+  .btn.ghost:hover{background:var(--panel2);filter:none}
+  .more{margin:24px 0 0}
+  .d .ev.task::before{content:"☐ ";color:var(--dim)}
+  .wk{display:block;font-size:10px;color:var(--accent);background:rgba(255,184,107,.13);border-radius:3px;padding:0 4px;margin:1px 0 2px;white-space:nowrap;overflow:hidden}
+  .wk.alt{background:rgba(255,184,107,.24)}
   .meta{display:block;margin-top:12px;color:var(--dim);font-size:13px}
 
   /* 달력 미리보기 */
@@ -101,8 +108,11 @@
     <div>
       <h1>바탕화면에 늘 떠 있는<br><em>구글 캘린더</em></h1>
       <p>하루(Haru)는 Windows 바탕화면에 구글 캘린더를 달력처럼 띄워 두는 무료 PC 프로그램이에요. 날짜를 더블클릭하면 그 자리에서 바로 일정을 적을 수 있고, 휴대폰의 구글 캘린더와 자동으로 맞춰져요.</p>
-      <a class="btn" href="https://github.com/qerqer79/haru-releases/releases/latest">⬇ Windows용 내려받기</a>
-      <span class="meta">Windows 10 / 11 · 무료 · 설치 파일 하나로 끝</span>
+      <div class="btns">
+        <a class="btn" href="https://github.com/qerqer79/haru-releases/releases/latest">⬇ Windows용 내려받기</a>
+        <a class="btn ghost" href="manual.html">설명서 보기</a>
+      </div>
+      <span class="meta">최신 버전 <span id="ver">1.0.17</span> · Windows 10 / 11 · 무료 · 설치 파일 하나로 끝</span>
     </div>
 
     <div class="cal" aria-label="하루 화면 예시">
@@ -111,7 +121,7 @@
         <div class="wd">일</div><div class="wd">월</div><div class="wd">화</div><div class="wd">수</div><div class="wd">목</div><div class="wd">금</div><div class="wd">토</div>
 
         <div class="d sun"><span class="n">1</span></div>
-        <div class="d"><span class="n">2</span></div>
+        <div class="d"><span class="n">2</span><span class="ev">10:00 운동</span></div>
         <div class="d"><span class="n">3</span><span class="ev">13:30 회의</span></div>
         <div class="d"><span class="n">4</span></div>
         <div class="d"><span class="n">5</span><span class="ev">병원 예약</span></div>
@@ -119,16 +129,16 @@
         <div class="d sat"><span class="n">7</span></div>
 
         <div class="d sun"><span class="n">8</span></div>
-        <div class="d"><span class="n">9</span></div>
+        <div class="d"><span class="n">9</span><span class="ev">10:00 운동</span></div>
         <div class="d"><span class="n">10</span></div>
         <div class="d"><span class="n">11</span><span class="hol">빼빼로데이</span></div>
-        <div class="d"><span class="n">12</span><span class="ev">과제 제출</span></div>
+        <div class="d"><span class="n">12</span><span class="ev task">과제 제출</span></div>
         <div class="d"><span class="n">13</span></div>
         <div class="d sat"><span class="n">14</span><span class="ev">10:00 운동</span></div>
 
         <div class="d sun"><span class="n">15</span></div>
-        <div class="d"><span class="n">16</span></div>
-        <div class="d"><span class="n">17</span><span class="bar">제주 여행</span></div>
+        <div class="d"><span class="n">16</span><span class="ev">10:00 운동</span></div>
+        <div class="d"><span class="n">17</span><span class="wk">12주차</span><span class="bar">제주 여행</span></div>
         <div class="d"><span class="n">18</span><span class="bar">제주 여행</span></div>
         <div class="d"><span class="n">19</span><span class="bar">제주 여행</span></div>
         <div class="d"><span class="n">20</span></div>
@@ -136,9 +146,9 @@
 
         <div class="d sun"><span class="n">22</span></div>
         <div class="d today"><span class="n">23</span><span class="ev">19:00 약속</span></div>
-        <div class="d"><span class="n">24</span></div>
+        <div class="d"><span class="n">24</span><span class="wk alt">13주차</span></div>
         <div class="d"><span class="n">25</span></div>
-        <div class="d"><span class="n">26</span><span class="ev">14:00 면접</span></div>
+        <div class="d"><span class="n">26</span><span class="ev">14:00 면접</span><span class="ev task">발표 준비</span></div>
         <div class="d"><span class="n">27</span><span class="ev">친구 생일</span></div>
         <div class="d sat"><span class="n">28</span></div>
 
@@ -157,13 +167,17 @@
     <h2>이런 걸 할 수 있어요</h2>
     <p class="lead">창을 따로 열 필요 없이, 바탕화면이 그대로 달력이 돼요.</p>
     <div class="grid">
-      <div class="card"><h3>더블클릭으로 바로 적기</h3><p>날짜 칸을 더블클릭하면 그 자리에 작은 창이 열려요. 한 줄에 일정 하나, <b>13:30 회의</b>처럼 시간을 붙이면 시간 일정이 돼요.</p></div>
-      <div class="card"><h3>구글 캘린더와 자동 동기화</h3><p>하루에서 적은 일정은 휴대폰 구글 캘린더에, 휴대폰에서 적은 일정은 하루에 그대로 나타나요. 인터넷이 끊겨도 적어 두면 나중에 올라가요.</p></div>
-      <div class="card"><h3>공휴일 · 여러 날 일정 · 할 일</h3><p>대한민국 공휴일과 기념일, 칸을 넘어가는 여러 날 일정, 구글 할 일까지 한 화면에서 보고 바로 완료 체크해요.</p></div>
-      <div class="card"><h3>내 마음대로 디자인</h3><p>테마, 색, 투명도, 글꼴, 글자 크기, 주 시작 요일까지 바꿀 수 있어요. 바꾸는 즉시 미리 보여요.</p></div>
-      <div class="card"><h3>화면에 착 붙는 배치</h3><p>위치와 크기를 자유롭게 바꾸고, 화면 가장자리와 작업표시줄에 자석처럼 붙어요. 다 정하면 잠가 두면 돼요.</p></div>
-      <div class="card"><h3>숨기기 · 단축키</h3><p>안 쓸 때는 시계 옆 아이콘으로 숨겨 두고, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd> 같은 단축키로 불러와요. 단축키는 바꿀 수 있어요.</p></div>
+      <div class="card"><h3>더블클릭으로 바로 적기</h3><p>날짜 칸을 더블클릭하면 그 자리에 메모처럼 적는 창이 열려요. <b>13:30 회의</b>, <b>오후 3시 운동</b>처럼 쓰면 시간 일정, <b>~12/7</b>이면 여러 날 일정이 돼요.</p></div>
+      <div class="card"><h3>구글 캘린더와 자동 동기화</h3><p>하루에서 적은 일정은 휴대폰 구글 캘린더에, 휴대폰에서 적은 일정은 하루에 나타나요. 인터넷이 끊겨도 적어 두면 연결될 때 올라가요.</p></div>
+      <div class="card"><h3>할 일 · 공휴일 · 캘린더 목록</h3><p>구글 할 일을 체크박스로 바로 완료하고, 대한민국 공휴일·기념일도 보여요. 구글 캘린더처럼 캘린더를 켜고 끌 수 있어요.</p></div>
+      <div class="card"><h3>루틴 (반복 일정)</h3><p>매주 화·목, 격주, 3일마다 같은 반복을 한 번에 만들어요. 일정 루틴은 폰에서도 반복되고, 반복이 안 되는 구글 할 일도 루틴으로 만들 수 있어요.</p></div>
+      <div class="card"><h3>여러 개 골라 한 번에</h3><p><kbd>Ctrl</kbd>·<kbd>Shift</kbd>로 일정을 여러 개 골라 한꺼번에 지우거나 색·캘린더를 바꿔요. 끌어서 다른 날로 옮기고, <kbd>Ctrl</kbd>을 누르고 놓으면 복사돼요.</p></div>
+      <div class="card"><h3>주차 표시</h3><p>학기나 프로젝트 기간을 정해 두면 달력에 "3주차"처럼 막대로 보여 줘요. 기간을 여러 개 만들고 주기 길이도 바꿀 수 있어요.</p></div>
+      <div class="card"><h3>잠금</h3><p>중요한 날짜나 일정을 잠가 두면 실수로 지우거나 고칠 수 없어요. 우클릭 한 번이나 잠금 편집 모드로 잠그고 풀어요.</p></div>
+      <div class="card"><h3>내 마음대로 디자인</h3><p>테마 5가지, 색, 투명도, 글꼴, 글자 크기, 주 시작 요일까지 바꿀 수 있어요. 바탕화면이 비쳐 보이게 전체를 한 번에 투명하게 할 수도 있어요.</p></div>
+      <div class="card"><h3>착 붙는 배치 · 숨기기 · 단축키</h3><p>화면 끝에 자석처럼 붙고, 안 쓸 때는 숨겨 둬요. <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>로 어디서든 오늘 일정을 바로 적어요.</p></div>
     </div>
+    <p class="more"><a class="btn ghost" href="manual.html">모든 기능과 사용법 보기 →</a></p>
   </section>
 
   <section id="google">
@@ -171,9 +185,9 @@
     <p class="lead">하루는 따로 서버가 없어요. 내 PC와 Google 사이에서만 데이터가 오가고, 개발자를 포함한 누구에게도 보내지지 않아요.</p>
     <table>
       <tr><th style="width:34%">요청하는 권한</th><th>쓰는 곳</th></tr>
-      <tr><td>캘린더 일정 보기·편집<br><code>auth/calendar.events</code></td><td>체크해 둔 캘린더의 일정을 달력에 보여 주고, 하루에서 적거나 고치거나 지운 일정을 구글 캘린더에 반영해요.</td></tr>
+      <tr><td>캘린더 일정 보기·편집<br><code>auth/calendar.events</code></td><td>체크해 둔 캘린더의 일정을 달력에 보여 주고, 하루에서 적거나 고치거나 지우거나 옮기고 복사한 일정, 루틴(반복 일정)을 구글 캘린더에 반영해요.</td></tr>
       <tr><td>캘린더 목록 보기·체크 변경<br><code>auth/calendar.calendarlist</code></td><td>구글 캘린더 왼쪽의 캘린더 목록(이름·색·체크 상태)을 하루에서도 보여 주고, 하루에서 체크를 바꾸면 구글 캘린더에도 똑같이 반영해요.</td></tr>
-      <tr><td>할 일 보기·완료 표시<br><code>auth/tasks</code></td><td>마감일이 있는 구글 할 일(Tasks)을 달력에 보여 주고, 하루에서 체크하면 완료로 표시해요. 우클릭으로 일정을 할 일로 바꾸거나 할 일을 지울 때도 써요.</td></tr>
+      <tr><td>할 일 보기·완료 표시<br><code>auth/tasks</code></td><td>마감일이 있는 구글 할 일(Tasks)을 달력에 보여 주고, 하루에서 체크하면 완료로 표시해요. 일정을 할 일로 바꾸거나, 할 일을 옮기고 지우거나, 할 일 루틴을 만들 때도 써요.</td></tr>
       <tr><td>공개 캘린더 일정 보기<br><code>auth/calendar.events.public.readonly</code></td><td>Google이 공개한 대한민국 공휴일 캘린더를 읽어서 공휴일·기념일을 표시해요.</td></tr>
       <tr><td>기본 프로필 (이름, 이메일, 사진)<br><code>openid · email · profile</code></td><td>지금 어떤 계정으로 로그인했는지 계정 메뉴에 보여 줘요.</td></tr>
     </table>
@@ -187,8 +201,9 @@
       <li>"Windows의 PC 보호" 창이 뜨면 <b>추가 정보 → 실행</b>을 눌러요. 개인이 만든 프로그램이라 처음 한 번 뜨는 창이에요.</li>
       <li>설치 위치와 바탕화면 아이콘, 윈도우 시작 시 자동 실행 여부를 고르고 설치해요.</li>
       <li>하루 오른쪽 위의 계정 아이콘에서 <b>Google 로그인</b>을 눌러요. "Google에서 확인하지 않은 앱" 화면이 나오면 <b>고급 → 하루(으)로 이동</b>을 눌러 계속하면 돼요.</li>
-      <li>새 버전이 나오면 하루 제목줄에 <b>새 버전</b> 버튼이 떠요. 누르면 알아서 업데이트돼요.</li>
+      <li>새 버전이 나오면 하루 제목줄에 <b>새 버전</b> 버튼이 떠요. 누르면 알아서 업데이트되고, 일정과 설정은 그대로예요.</li>
     </ol>
+    <p class="more">처음이라면 <a href="manual.html">설명서</a>의 시작하기와 일정 적기부터 읽어 보세요.</p>
   </section>
 
   <footer>
@@ -197,5 +212,14 @@
     <p style="font-size:12.5px">Google 캘린더는 Google LLC의 상표입니다. 하루는 Google과 제휴하거나 Google의 보증을 받은 프로그램이 아닙니다.</p>
   </footer>
 </div>
+<script>
+{
+  // 최신 Release 번호를 가져와 표시 (실패하면 적어 둔 번호 그대로)
+  fetch('https://api.github.com/repos/qerqer79/haru-releases/releases/latest')
+    .then(r=>r.ok?r.json():null)
+    .then(j=>{const t=j&&j.tag_name?String(j.tag_name).replace(/^v/i,''):'';if(/^[0-9.]+$/.test(t))document.getElementById('ver').textContent=t;})
+    .catch(()=>{});
+}
+</script>
 </body>
 </html>
